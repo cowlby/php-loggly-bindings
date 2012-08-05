@@ -1,0 +1,24 @@
+{
+    "name": "cowlby/php-loggly-bindings",
+    "description": "PHP bindings for the Loggly events API.",
+    "type": "library",
+    "keywords": ["logging", "loggly", "api bindings"],
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Jose Prado",
+            "email": "cowlby@me.com"
+        }
+    ],
+
+    "require": {
+        "pimple/pimple": "dev-master"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Cowlby\\Loggly": "src/"
+        }
+    }
+}
