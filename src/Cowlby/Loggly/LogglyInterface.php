@@ -11,8 +11,6 @@
 
 namespace Cowlby\Loggly;
 
-use Cowlby\Loggly\Input\InputInterface;
-
 /**
  * Defines the general interface of sending logs to Loggly.
  *
@@ -20,21 +18,6 @@ use Cowlby\Loggly\Input\InputInterface;
  */
 interface LogglyInterface
 {
-    /**
-     * Sets the Input that the object should log to.
-     *
-     * @param InputInterface $input The Input to put into use.
-     * @return LogglyInterface
-     */
-    public function setInput(InputInterface $input);
-
-    /**
-     * Returns the Input that the object is logging to.
-     *
-     * @return InputInterface The Input currently in use.
-     */
-    public function getInput();
-
     /**
      * Sends a message to Loggly for logging.
      *

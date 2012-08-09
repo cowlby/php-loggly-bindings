@@ -20,7 +20,7 @@ use Cowlby\Loggly\Http\ClientInterface;
  *
  * @author Jose Prado <cowlby@me.com>
  */
-class ApiLogger extends Pimple implements LogglyInterface
+class ApiLogger extends Pimple implements LogglyInterface, HasInputInterface
 {
     /**
      * Constructor.
