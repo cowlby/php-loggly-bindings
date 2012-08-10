@@ -16,7 +16,7 @@ namespace Cowlby\Loggly;
  *
  * @author Jose Prado <cowlby@me.com>
  */
-interface LogglyInterface
+interface LogglyInterface extends HasInputInterface
 {
     /**
      * Sends a message to Loggly for logging.
