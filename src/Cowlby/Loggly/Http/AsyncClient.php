@@ -11,6 +11,8 @@
 
 namespace Cowlby\Loggly\Http;
 
+use Cowlby\Loggly\Input\HttpInputInterface;
+
 /**
  * POSTs messages to Loggly asynchronously.
  *
@@ -23,12 +25,22 @@ class AsyncClient extends AbstractClient
 {
     protected $hostname;
 
+    protected $port;
+
+    public function __construct(HttpInputInterface $input)
+    {
+        parent::__construct($input);
+
+        $this->hostname = 'ssl://' . ClientInterface::LOGGLY_HOST;
+        $this->port = ClientInterface::LOGGLY_PORT;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function post($message)
     {
-        $fp = fsockopen($this->getTransport(), ClientInterface::LOGGLY_PORT, $errno, $errstr, 30);
+        $fp = fsockopen($this->hostname, $this->port, $errno, $errstr, 30);
 
         if (FALSE === $fp) {
             throw new \RuntimeException($errstr, $errno);
@@ -46,15 +58,5 @@ class AsyncClient extends AbstractClient
         fclose($fp);
 
         return TRUE;
-    }
-
-    /**
-     * Gets the transport string to use in fsockopen.
-     *
-     * @return string
-     */
-    public function getTransport()
-    {
-        return 'ssl://' . ClientInterface::LOGGLY_HOST;
     }
 }
