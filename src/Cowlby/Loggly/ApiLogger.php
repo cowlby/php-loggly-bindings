@@ -45,19 +45,11 @@ class ApiLogger extends Pimple implements LogglyInterface, HasInputInterface
             );
         });
 
-        $this['client.host'] = ClientInterface::HOST_LOGGLY;
-
-        $this['client.port'] = ClientInterface::PORT_HTTPS;
-
         $this['client.class'] = 'Cowlby\\Loggly\\Http\\AsyncClient';
 
         $this['client'] = $this->share(function($container) {
 
-            return new $container['client.class'](
-                $container['input'],
-                $container['client.host'],
-                $container['client.port']
-            );
+            return new $container['client.class']($container['input']);
         });
     }
 
