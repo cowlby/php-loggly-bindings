@@ -18,7 +18,8 @@
 
     "autoload": {
         "psr-0": {
-            "Cowlby\\Loggly": "src/"
+            "Cowlby\\Loggly": "src/",
+            "Cowlby\\Tests\\Loggly": "tests/"
         }
     }
 }
