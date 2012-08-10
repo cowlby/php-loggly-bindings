@@ -70,10 +70,11 @@ class BufferedAsyncClient extends AbstractClient
             $request .= "Content-Length: " . strlen($message) . "\r\n";
 
             // Add Connection: Close header on the last request.
-            $request .= $i < $c ? "\r\n" : "Connection: Close\r\n\r\n";
+            $request .= $i === $c - 1 ? "Connection: Close\r\n\r\n" : "\r\n";
+            echo $i === $c - 1 ? 'end' : $i;
 
             $request .= $message;
-            $request .= $i < $c ? "\r\n" : "";
+            $request .= $i === $c - 1 ? "" : "\r\n";
 
             fwrite($fp, $request);
         }
