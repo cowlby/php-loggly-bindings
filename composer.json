@@ -15,11 +15,18 @@
     "require": {
         "pimple/pimple": "1.0.*"
     },
+    
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
 
     "autoload": {
         "psr-0": {
-            "Cowlby\\Loggly": "src/",
-            "Cowlby\\Tests\\Loggly": "tests/"
+            "Cowlby\\Loggly": "src/"
         }
+    },
+    
+    "config": {
+        "bin-dir": "bin"
     }
 }
